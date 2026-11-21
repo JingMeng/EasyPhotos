@@ -1,12 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    namespace 'com.huantansheng.easyphotos.demo'
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.huantansheng.easyphotos.demo"
-        minSdkVersion 15
-        targetSdkVersion 29
+        minSdk 15
+        targetSdk 34
         versionCode 2
         versionName "1.0.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -16,6 +21,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    
     }
 }
 
@@ -37,7 +43,10 @@ dependencies {
         exclude group: "com.android.support"
     }
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
-    //检测内存泄漏
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    //??????????    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 }
+
+
+
+

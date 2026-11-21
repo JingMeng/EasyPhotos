@@ -25,7 +25,11 @@ public class DurationUtils {
 //            e.printStackTrace();
         } finally {
             if (mmr != null) {
-                mmr.release();
+                try {
+                    mmr.release();
+                } catch (java.io.IOException e) {
+                    android.util.Log.w("DurationUtils", "Unable to release metadata retriever", e);
+                }
             }
         }
         return 0;
